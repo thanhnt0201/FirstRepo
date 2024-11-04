@@ -22,7 +22,15 @@ public class PlayerTest : MonoBehaviour
             Vector3 posTarget = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             posTarget.z = 0;
 
-            listTarget.Enqueue(posTarget);
+            if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+            {
+                listTarget.Enqueue(posTarget);
+            }
+            else
+            {
+                target.position = posTarget;
+            }
+
         }
 
         Vector3 dir = target.position - transform.position;
